@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import './App.css';
 import HomeScreen from './components/HomeScreen/HomeScreen';
-import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import { Route, Routes, HashRouter } from 'react-router-dom';
 import LoginScreen from './components/LoginScreen/LoginScreen';
 import { auth } from './firebase';
 import { useDispatch, useSelector } from 'react-redux';
@@ -32,16 +32,16 @@ function App() {
 
    return (
       <div className='app'>
-         <Router>
+         <HashRouter basename='/'>
             {!user ? (
                <LoginScreen />
             ) : (
                <Routes>
-                  <Route path='/profile' element={<ProfileScreen />} />
                   <Route exact path='/' element={<HomeScreen />} />
+                  <Route exact path='/profile' element={<ProfileScreen />} />
                </Routes>
             )}
-         </Router>
+         </HashRouter>
       </div>
    );
 }

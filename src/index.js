@@ -5,17 +5,14 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
 import store from './app/store';
-import { HashRouter } from 'react-router-dom';
 
 const container = document.getElementById('root');
 const root = createRoot(container);
 
 root.render(
-   <HashRouter basename={process.env.PUBLIC_URL}>
-      <Provider store={store}>
-         <App />
-      </Provider>
-   </HashRouter>,
+   <Provider store={store}>
+      <App />
+   </Provider>,
 );
 
 // If you want to start measuring performance in your app, pass a function
